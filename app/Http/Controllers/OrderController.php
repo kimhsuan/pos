@@ -77,10 +77,43 @@ class OrderController extends Controller
     
     public function create()
     {
+        $cart = Cart::where('user_id',Auth::user()->id)->first();
+
+        if(!$cart){
+            $cart =  new Cart();
+            $cart->user_id=Auth::user()->id;
+            $cart->save();
+        }
+        
+        $items = $cart->cartItems;
+        $total=0;
+        foreach($items as $item){
+            $total+=$item->product->price;
+        }
+        
         $customers = \App\Models\Customer::all();;
         $products = Product::all();;
-        $data = compact('customers','products');
-        return view('orders.create',$data);
+        $transits = \App\Models\Transit::all();;
+        $data = compact('customers','products','transits');
+        
+        return view('orders.create',$data,['items'=>$items,'total'=>$total]);
+    }
+    
+    public function save(Request $request)
+    {
+        $method = $request->method();
+        $order = new \App\Models\Order;
+        $order->date = $request['date'];
+        $order->cuno = $request['cuno'];
+        $order->fare = $request['fare'];
+        $order->price = $request['price'];
+        $order->paytime = $request['paytime'];
+        $order->deliverytime = $request['deliverytime'];
+        $order->transit = $request['transit'];
+        $order->note = $request['note'];
+        $order->save();
+        
+        return Redirect::to('orders');
     }
 
 }

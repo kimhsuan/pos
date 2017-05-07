@@ -31,6 +31,7 @@ Route::get('orders/addProduct/{productId}', 'OrderController@addItem');
 Route::get('orders/removeItem/{productId}', 'OrderController@removeItem');
 Route::get('orders/cart', 'OrderController@showCart');
 Route::get('orders/create', ['as' => 'orders.new','uses' => 'OrderController@create']);
+Route::post('orders/save', 'OrderController@save');
 
 Route::get('products', ['as' => 'products.index','uses' => 'ProdController@index']);
 Route::get('products/create', ['as' => 'products.create','uses' => 'ProdController@create']);
@@ -38,7 +39,6 @@ Route::get('products/sort', ['as' => 'products.sort','uses' => 'ProdController@s
 
 Route::get('customers', ['as' => 'customers.index','uses' => 'CustController@index']);
 Route::get('customers/create', ['as' => 'customers.create','uses' => 'CustController@create']);
-Route::post('customers/create', 'CustController@create');
 Route::post('customers/save', 'CustController@save');
 Route::get('customers/sort', ['as' => 'customers.sort','uses' => 'CustController@sort']);
 Route::get('customers/newsort', ['as' => 'customers.newsort','uses' => 'CustController@newsort']);

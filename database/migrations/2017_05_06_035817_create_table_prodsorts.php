@@ -27,6 +27,6 @@ class CreateTableProdsorts extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('prodsorts');
     }
 }

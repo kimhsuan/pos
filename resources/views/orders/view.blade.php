@@ -11,7 +11,7 @@
                     <th>商品</th>
                     <th></th>
                     <th class="text-center"></th>
-                    <th class="text-center">小计</th>
+                    <th class="text-center">小計</th>
                     <th> </th>
                 </tr>
                 </thead>
@@ -54,9 +54,11 @@
                             </button>
                         </a></td>
                     <td>
+                        <a href="{{ url ('orders/create') }}">
                         <button type="button" class="btn btn-success">
                             產生訂單 <span class="fa fa-play"></span>
                         </button></td>
+                        </a>
                 </tr>
                 </tbody>
             </table>

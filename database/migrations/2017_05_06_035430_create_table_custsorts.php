@@ -27,6 +27,6 @@ class CreateTableCustsorts extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('custsorts');
     }
 }

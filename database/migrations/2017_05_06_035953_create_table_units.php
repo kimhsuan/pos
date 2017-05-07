@@ -27,6 +27,6 @@ class CreateTableUnits extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('units');
     }
 }

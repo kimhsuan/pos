@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ProductTableSeeder extends Seeder
+class ProductsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,7 @@ class ProductTableSeeder extends Seeder
      */
     public function run()
     {
+
         DB::table('products')->insert([
             'catno' => 1,
             'name' => 'HTC 10 32GB',
