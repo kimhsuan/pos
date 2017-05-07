@@ -8,8 +8,9 @@
 <!-- /.row -->
 <div class="col-sm-12">
 <div class="row">
-    <a href="{{ url ('orders') }}">
+    <!-- /.col-lg-4 -->
     <div class="col-lg-4 col-md-8">
+    <a href="{{ url ('orders') }}">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <div class="row">
@@ -26,10 +27,11 @@
                     <div class="clearfix"></div>
                 </div>
         </div>
-    </div>
     </a>
-    <a href="{{ url ('products') }}">
+    </div>
+    <!-- /.col-lg-4 -->
     <div class="col-lg-4 col-md-8">
+    <a href="{{ url ('products') }}">
         <div class="panel panel-green">
             <div class="panel-heading">
                 <div class="row">
@@ -46,12 +48,13 @@
                     <div class="clearfix"></div>
                 </div>
         </div>
-    </div>
     </a>
+    </div>
 </div>
 <div class="row">
-    <a href="{{ url ('customers') }}">
+    <!-- /.col-lg-4 -->
     <div class="col-lg-4 col-md-8">
+    <a href="{{ url ('customers') }}">
         <div class="panel panel-yellow">
             <div class="panel-heading">
                 <div class="row">
@@ -69,10 +72,11 @@
                 </div>
             
         </div>
-    </div>
     </a>
-    <a href="{{ url ('statistics') }}">
+    </div>
+    <!-- /.col-lg-4 -->
     <div class="col-lg-4 col-md-8">
+    <a href="{{ url ('statistics') }}">
         <div class="panel panel-red">
             <div class="panel-heading">
                 <div class="row">
@@ -89,7 +93,7 @@
                     <div class="clearfix"></div>
                 </div>
         </div>
-    </div>
     </a>
+    </div>
 </div>
 @endsection

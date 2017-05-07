@@ -26,7 +26,7 @@
                             <td>{{ $product->id }}</td>
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->price }}</td>
-                            <td><a href="/addProduct/{{$product->id}}" class="btn btn-success btn-product"><span class="fa fa-shopping-cart"></span>新增</a></td>
+                            <td><a href="{{ url ('products') }}/{{ $product->id }}">詳細資料</a></td>
                         </tr>
                         @endforeach
                     </tbody>

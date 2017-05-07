@@ -24,7 +24,23 @@ class OrderController extends Controller
     public function new()
     {
         $products = Product::all();
-        return view('orders.new')->with('products', $products);
+        
+        $cart = Cart::where('user_id',Auth::user()->id)->first();
+
+        if(!$cart){
+            $cart =  new Cart();
+            $cart->user_id=Auth::user()->id;
+            $cart->save();
+        }
+
+        $items = $cart->cartItems;
+        $total=0;
+        foreach($items as $item){
+            $total+=$item->product->price;
+        }
+        $data = compact('products','items','total');
+        
+        return view('orders.new',$data);
 
     }
     
@@ -48,31 +64,13 @@ class OrderController extends Controller
         $cartItem->cart_id= $cart->id;
         $cartItem->save();
 
-        return redirect('/orders/cart');
-    }
-    
-    public function showCart(){
-        $cart = Cart::where('user_id',Auth::user()->id)->first();
-
-        if(!$cart){
-            $cart =  new Cart();
-            $cart->user_id=Auth::user()->id;
-            $cart->save();
-        }
-
-        $items = $cart->cartItems;
-        $total=0;
-        foreach($items as $item){
-            $total+=$item->product->price;
-        }
-
-        return view('orders.view',['items'=>$items,'total'=>$total]);
+        return redirect('/orders/new');
     }
 
     public function removeItem($id){
 
         CartItem::destroy($id);
-        return redirect('/orders/cart');
+        return redirect('/orders/new');
     }
     
     public function create()

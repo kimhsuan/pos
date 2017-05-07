@@ -12,13 +12,13 @@ class UnitsTableSeeder extends Seeder
     public function run()
     {
 
-        DB::table('transits')->insert([
+        DB::table('units')->insert([
             'name' => '無',
         ]);
-        DB::table('transits')->insert([
+        DB::table('units')->insert([
             'name' => '個',
         ]);
-        DB::table('transits')->insert([
+        DB::table('units')->insert([
             'name' => '支',
         ]);
 

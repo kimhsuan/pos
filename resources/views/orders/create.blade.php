@@ -14,6 +14,10 @@
                     <div class="col-lg-6">
                         <form method="post" action="{{ url ('orders/save') }}">
                             <div class="form-group">
+                                <label>日期</label>
+                                <input type="date" name="date" class="form-control" placeholder="0000-00-00">
+                            </div>
+                            <div class="form-group">
                                 <label>客戶帳號</label>
                                 <select name="cuno" class="form-control">
                                     @foreach($customers as $customer)
