@@ -47,3 +47,6 @@ Route::get('customers/newsort', ['as' => 'customers.newsort','uses' => 'CustCont
 Route::post('customers/sortadd', 'CustController@sortadd');
 Route::get('customers/{id}', ['as' => 'customers.show','uses' => 'CustController@show']);
 Route::get('customers/{id}/edit', ['as' => 'customers.edit','uses' => 'CustController@edit']);
+
+Route::get('statistics', ['as' => 'statistics.index','uses' => 'StatController@index']);
+Route::get('statistics/inventory', ['as' => 'statistics.inventory','uses' => 'StatController@inventory']);

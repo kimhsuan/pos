@@ -23,12 +23,14 @@ class ProdController extends Controller
         $data = compact('prodsorts','units');
         return view('products.create',$data);
     }
+    
         public function sort()
     {
         $prodsorts = \App\Models\Prodsort::all();
         $data = compact('prodsorts');
         return view('products.sort',$data);
     }
+    
     public function save(Request $request)
     {
         $method = $request->method();
