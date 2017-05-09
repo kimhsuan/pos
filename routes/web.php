@@ -34,10 +34,12 @@ Route::post('orders/save', 'OrderController@save');
 
 Route::get('products', ['as' => 'products.index','uses' => 'ProdController@index']);
 Route::get('products/create', ['as' => 'products.create','uses' => 'ProdController@create']);
-Route::get('products/sort', ['as' => 'products.sort','uses' => 'ProdController@sort']);
 Route::post('products/save', 'ProdController@save');
+Route::get('products/sort', ['as' => 'products.sort','uses' => 'ProdController@sort']);
+Route::get('products/newsort', ['as' => 'products.newsort','uses' => 'ProdController@newsort']);
 Route::get('products/{id}', ['as' => 'products.show','uses' => 'ProdController@show']);
-Route::get('products/{id}/edit', ['as' => 'products.edit','uses' => 'ProdController@edit']);
+Route::post('products/update/{id}', 'ProdController@update');
+Route::delete('products/delete/{id}', 'ProdController@delete');
 
 Route::get('customers', ['as' => 'customers.index','uses' => 'CustController@index']);
 Route::get('customers/create', ['as' => 'customers.create','uses' => 'CustController@create']);

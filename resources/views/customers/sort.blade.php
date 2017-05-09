@@ -7,15 +7,15 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                顧客類別
+                顧客分類<a href="{{ url ('customers/newsort') }}"><button type="button" class="btn btn-default  btn-xs">新增</button></a>
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                     <thead>
                         <tr>
-                            <th>類別編號</th>
-                            <th>類別名稱</th>
+                            <th>分類編號</th>
+                            <th>分類名稱</th>
                             <th></th>
                         </tr>
                     </thead>

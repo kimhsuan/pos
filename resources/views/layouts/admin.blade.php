@@ -129,7 +129,7 @@
                 <li>
                     <a href="#"></i> 統計資料<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li {{ (Request::is('*charts') ? 'class="active"' : '') }}>
+                        <li {{ (Request::is('*statistics/inventory') ? 'class="active"' : '') }}>
                             <a href="{{ url ('statistics/inventory') }}">庫存統計</a>
                         </li>
                         <li>

@@ -25,23 +25,47 @@ class CustController extends Controller
     {
         $method = $request->method();
         $customer = new \App\Models\Customer;
-        $customer->catno = $request['catno'];
-        $customer->account = $request['account'];
-        $customer->name = $request['name'];
-        $customer->tel = $request['tel'];
-        $customer->mobile = $request['mobile'];
-        $customer->email = $request['email'];
-        $customer->address = $request['address'];
-        $customer->note = $request['note'];
+        $customer->catno = $request->input('catno');
+        $customer->account = $request->input('account');
+        $customer->name = $request->input('name');
+        $customer->tel = $request->input('tel');
+        $customer->mobile = $request->input('mobile');
+        $customer->email = $request->input('email');
+        $customer->address = $request->input('address');
+        $customer->note = $request->input('note');
         $customer->save();
         
         return Redirect::to('customers');
     }
     public function show($id)
     {
-        $customer = \App\Models\Customer::find($id);
-        $data = compact('customer');
+        $customers = \App\Models\Customer::find($id);
+        $custsorts = \App\Models\Custsort::all();;
+        $data = compact('customers','custsorts');
         return view('customers.show',$data);
+    }
+    public function update(Request $request, $id)
+    {
+        $method = $request->method();
+        $customer = \App\Models\Customer::find($id);
+        $customer->catno = $request->input('catno');
+        $customer->account = $request->input('account');
+        $customer->name = $request->input('name');
+        $customer->tel = $request->input('tel');
+        $customer->mobile = $request->input('mobile');
+        $customer->email = $request->input('email');
+        $customer->address = $request->input('address');
+        $customer->note = $request->input('note');
+        $customer->save();
+        
+        return Redirect::to('customers');
+    }
+    public function delete($id)
+    {
+        $product = \App\Models\Customer::find($id);
+        $product->delete();
+        
+        return Redirect::to('customers');
     }
         public function sort()
     {

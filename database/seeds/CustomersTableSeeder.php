@@ -66,6 +66,72 @@ class CustomersTableSeeder extends Seeder
             'address' => '高雄市中華五路656號',
             'note' => '',
         ]);
+        
+		DB::table('customers')->insert([
+            'catno' => '0',
+            'account' => 'gary0087',
+            'name' => '張凱文',
+            'tel' => '0226086937',
+            'mobile' => '0922086997',
+            'email' => 'gary0087@abvc.com',
+            'address' => '台北市內湖區瑞光路399號',
+            'note' => '',
+        ]);
+        
+		DB::table('customers')->insert([
+            'catno' => '0',
+            'account' => 'dree0093',
+            'name' => '李大文',
+            'tel' => '0224573087',
+            'mobile' => '0912396797',
+            'email' => 'dree0093@ace.com',
+            'address' => '台北市忠孝東路三段3號',
+            'note' => '',
+        ]);
+        
+		DB::table('customers')->insert([
+            'catno' => '0',
+            'account' => 'eat9567',
+            'name' => '王國榮',
+            'tel' => '0224985325',
+            'mobile' => '0978019598',
+            'email' => 'eat9567@ace.com',
+            'address' => '屏東縣琉球鄉中興路5號',
+            'note' => '',
+        ]);
+        
+		DB::table('customers')->insert([
+            'catno' => '0',
+            'account' => 'dreak1583',
+            'name' => '蕭志明',
+            'tel' => '0223918666',
+            'mobile' => '0987336995',
+            'email' => 'dreak1583@yhow.com',
+            'address' => '台北市北平東路30號',
+            'note' => '',
+        ]);
+        
+		DB::table('customers')->insert([
+            'catno' => '0',
+            'account' => 'livie5688',
+            'name' => '王瑞伶',
+            'tel' => '0229180786',
+            'mobile' => '0903368505',
+            'email' => 'livie5688@auu.com',
+            'address' => '桃園市八德區建國路384號',
+            'note' => '',
+        ]);
+        
+		DB::table('customers')->insert([
+            'catno' => '0',
+            'account' => 'super599',
+            'name' => '洪雅婷',
+            'tel' => '0222999307',
+            'mobile' => '0922091623',
+            'email' => 'super599@ace.com',
+            'address' => '新北市新北產業園區五工二路117號',
+            'note' => '',
+        ]);
 
     }
 }

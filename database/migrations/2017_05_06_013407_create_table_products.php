@@ -21,6 +21,7 @@ class CreateTableProducts extends Migration
             $table->integer('cost');
             $table->integer('stock');
             $table->integer('save');
+            $table->integer('sold');
             $table->integer('unit');
             $table->text('note');
             $table->timestamps();

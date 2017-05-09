@@ -35,23 +35,52 @@ class ProdController extends Controller
     {
         $method = $request->method();
         $product = new \App\Models\Product;
-        $product->catno = $request['catno'];
-        $product->name = $request['name'];
-        $product->price = $request['price'];
-        $product->cost = $request['cost'];
-        $product->stock = $request['stock'];
-        $product->save = $request['save'];
-        $product->unit = $request['unit'];
-        $product->note = $request['note'];
+        $product->catno = $request->input('catno');
+        $product->name = $request->input('name');
+        $product->price = $request->input('price');
+        $product->cost = $request->input('cost');
+        $product->stock = $request->input('stock');
+        $product->save = $request->input('save');
+        $product->sold = $request->input('sold');
+        $product->unit = $request->input('unit');
+        $product->note = $request->input('note');
         $product->save();
         
-        return Redirect::to('customers');
+        return Redirect::to('products');
     }
         public function show($id)
     {
-        $product = \App\Models\Product::find($id);
-        $data = compact('product');
+        $products = \App\Models\Product::find($id);
+        $prodsorts = \App\Models\Prodsort::all();;
+        $units = \App\Models\Unit::all();;
+        $data = compact('products','prodsorts','units');
         return view('products.show',$data);
+    }
+    
+    public function update(Request $request, $id)
+    {
+        $method = $request->method();
+        $product = \App\Models\Product::find($id);
+        $product->catno = $request->input('catno');
+        $product->name = $request->input('name');
+        $product->price = $request->input('price');
+        $product->cost = $request->input('cost');
+        $product->stock = $request->input('stock');
+        $product->save = $request->input('save');
+        $product->sold = $request->input('sold');
+        $product->unit = $request->input('unit');
+        $product->note = $request->input('note');
+        $product->save();
+        
+        return Redirect::to('products');
+    }
+    
+    public function delete($id)
+    {
+        $product = \App\Models\Product::find($id);
+        $product->delete();
+        
+        return Redirect::to('products');
     }
 
 }

@@ -42,6 +42,10 @@
                                 <input name="save" class="form-control">
                             </div>
                             <div class="form-group">
+                                <label>銷售數量</label>
+                                <input name="sold" class="form-control">
+                            </div>
+                            <div class="form-group">
                                 <label>單位</label>
                                 <select name="unit" class="form-control">
                                     @foreach($units as $unit)
@@ -53,6 +57,7 @@
                                 <label>備註</label>
                                 <textarea name="note" class="form-control" rows="3"></textarea>
                             </div>
+                            {!! csrf_field() !!}
                             <button type="submit" class="btn btn-default">Submit Button</button>
                             <button type="reset" class="btn btn-default">Reset Button</button>
                         </form>
