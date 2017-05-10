@@ -11,6 +11,8 @@ class StatController extends Controller
 
     public function index()
     {
+        $products = \App\Models\Product::all();
+        $data = compact('products');
         return view('statistics.index');
     }
     

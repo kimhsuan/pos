@@ -15,15 +15,19 @@
                         <form method="post" action="{{ url ('orders/save') }}">
                             <div class="form-group">
                                 <label>日期</label>
-                                <input type="date" name="date" class="form-control" placeholder="0000-00-00">
+                                <input type="date" name="orderdate" class="form-control" value="{{ $now }}">
                             </div>
                             <div class="form-group">
                                 <label>客戶帳號</label>
-                                <select name="cuno" class="form-control">
+                                <select name="custid" class="form-control">
                                     @foreach($customers as $customer)
                                     <option value="{{ $customer->id }}">{{ $customer->account }}</option>
                                     @endforeach
                                 </select>
+                            </div>
+                            <div class="form-group">
+                                <label>商品編號</label>
+                                <input name="prodid" value="0" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>運費</label>
@@ -35,11 +39,11 @@
                             </div>
                             <div class="form-group">
                                 <label>匯款時間</label>
-                                <input type="date" name="paytime" class="form-control">
+                                <input type="date" name="paytime" class="form-control" value="{{ $now }}">
                             </div>
                             <div class="form-group">
                                 <label>出貨時間</label>
-                                <input type="date" name="deliverytime" class="form-control">
+                                <input type="date" name="deliverytime" class="form-control" value="{{ $now }}">
                             </div>
                             <div class="form-group">
                                 <label>運送方式</label>

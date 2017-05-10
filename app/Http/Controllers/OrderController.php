@@ -5,6 +5,7 @@ use App\Models\Cart;
 use App\Models\CartItem;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 
@@ -18,7 +19,9 @@ class OrderController extends Controller
     public function index()
     {
         $orders = \App\Models\Order::all();
-        return view('orders.index',['orders' => $orders]);
+        $customers = \App\Models\Customer::all();
+        $data = compact('orders','customers');
+        return view('orders.index',$data);
     }
     
     public function new()
@@ -92,7 +95,8 @@ class OrderController extends Controller
         $customers = \App\Models\Customer::all();;
         $products = Product::all();;
         $transits = \App\Models\Transit::all();;
-        $data = compact('customers','products','transits');
+        $now = Carbon::now(('Asia/Taipei'));
+        $data = compact('customers','products','transits','now');
         
         return view('orders.create',$data,['items'=>$items,'total'=>$total]);
     }
@@ -101,8 +105,9 @@ class OrderController extends Controller
     {
         $method = $request->method();
         $order = new \App\Models\Order;
-        $order->date = $request['date'];
-        $order->cuno = $request['cuno'];
+        $order->orderdate = $request['orderdate'];
+        $order->custid = $request['custid'];
+        $order->prodid = $request['prodid'];
         $order->fare = $request['fare'];
         $order->price = $request['price'];
         $order->paytime = $request['paytime'];

@@ -2,31 +2,28 @@
 @section('page-header','商品管理系統')
 
 @section('page-content')
-<!-- /.row -->
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-8">
         <div class="panel panel-default">
             <div class="panel-heading">
-                商品列表
+                商品單位
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                     <thead>
                         <tr>
-                            <th>序號</th>
+                            <th>編號</th>
                             <th>名稱</th>
-                            <th>售價</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($products as $product)
+                        @foreach($units as $unit)
                         <tr>
-                            <td>{{ $product->id }}</td>
-                            <td>{{ $product->name }}</td>
-                            <td>{{ $product->price }}</td>
-                            <td><a href="{{ url ('products') }}/{{ $product->id }}">編輯</a></td>
+                            <td>{{ $unit->id }}</td>
+                            <td>{{ $unit->name }}</td>
+                            <td><a href="#">刪除</a></td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -36,8 +33,32 @@
         </div>
         <!-- /.panel -->
     </div>
-    <!-- /.col-lg-12 -->
+    <!-- /.col-lg-8 -->
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                新增商品單位
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        {{Form::open(['url'=>'pruducts/unitadd', 'method'=>'post'])}}
+                        {{Form::label('name', '單位名稱')}}<br>
+                        {{Form::text('name')}}<br>
+                        {{Form::submit('新增')}}
+                        {{Form::close()}}
+                    </div>
+                    <!-- /.col-lg-6 (nested) -->
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-4 -->
 </div>
+<!-- /.row -->
 @endsection
 
 @section('footer-scripts')

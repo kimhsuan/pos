@@ -25,8 +25,8 @@
                         @foreach($orders as $order)
                         <tr>
                             <td>{{ $order->id }}</td>
-                            <td>{{ $order->date }}</td>
-                            <td>{{ $order->cuno }}</td>
+                            <td>{{ $order->orderdate }}</td>
+                            <td>{{ $order->custid }}</td>
                             <td>{{ $order->price }}</td>
                             <td><a href="#">詳細資料</a></td>
                         </tr>

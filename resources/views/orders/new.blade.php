@@ -26,7 +26,7 @@
                             <td>{{ $product->id }}</td>
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->price }}</td>
-                            <td><a href="/orders/addProduct/{{$product->id}}"><button type="button" class="btn btn-outline btn-success  btn-xs">加入</button></a></td>
+                            <td><a href="/orders/addItem/{{$product->id}}"><button type="button" class="btn btn-outline btn-success  btn-xs">加入</button></a></td>
                         </tr>
                         @endforeach
                     </tbody>

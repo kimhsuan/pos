@@ -38,10 +38,6 @@
                                 <input name="price" class="form-control" value="{{ $products->price }}">
                             </div>
                             <div class="form-group">
-                                <label>成本</label>
-                                <input name="cost" class="form-control" value="{{ $products->cost }}">
-                            </div>
-                            <div class="form-group">
                                 <label>庫存</label>
                                 <input name="stock" class="form-control" value="{{ $products->stock }}">
                             </div>

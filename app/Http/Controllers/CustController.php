@@ -67,17 +67,15 @@ class CustController extends Controller
         
         return Redirect::to('customers');
     }
-        public function sort()
+
+    public function sort()
     {
         $custsorts = \App\Models\Custsort::all();
         $data = compact('custsorts');
         return view('customers.sort',$data);
     }
-        public function newsort()
-    {
-        return view('customers.newsort');
-    }
-        public function sortadd(Request $request)
+
+    public function sortadd(Request $request)
     {
         $method = $request->method();
         $post = new \App\Models\Custsort;

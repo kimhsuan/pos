@@ -16,6 +16,7 @@ class ProdController extends Controller
         $data = compact('products');
         return view('products.index',$data);
     }
+    
     public function create()
     {
         $prodsorts = \App\Models\Prodsort::all();;
@@ -24,11 +25,38 @@ class ProdController extends Controller
         return view('products.create',$data);
     }
     
-        public function sort()
+    public function sort()
     {
         $prodsorts = \App\Models\Prodsort::all();
         $data = compact('prodsorts');
         return view('products.sort',$data);
+    }
+
+    public function sortadd(Request $request)
+    {
+        $method = $request->method();
+        $post = new \App\Models\Prodsort;
+        $post->name = $request['name'];
+        $post->save();
+        
+        return Redirect::to('products/sort');
+    }
+    
+    public function unit()
+    {
+        $units = \App\Models\Unit::all();
+        $data = compact('units');
+        return view('products.unit',$data);
+    }
+    
+    public function unitadd(Request $request)
+    {
+        $method = $request->method();
+        $post = new \App\Models\Unit;
+        $post->name = $request['name'];
+        $post->save();
+        
+        return Redirect::to('products/unit');
     }
     
     public function save(Request $request)
@@ -38,7 +66,6 @@ class ProdController extends Controller
         $product->catno = $request->input('catno');
         $product->name = $request->input('name');
         $product->price = $request->input('price');
-        $product->cost = $request->input('cost');
         $product->stock = $request->input('stock');
         $product->save = $request->input('save');
         $product->sold = $request->input('sold');
@@ -48,7 +75,8 @@ class ProdController extends Controller
         
         return Redirect::to('products');
     }
-        public function show($id)
+    
+    public function show($id)
     {
         $products = \App\Models\Product::find($id);
         $prodsorts = \App\Models\Prodsort::all();;

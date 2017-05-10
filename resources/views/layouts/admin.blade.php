@@ -108,6 +108,9 @@
                         <li {{ (Request::is('*products/sort') ? 'class="active"' : '') }}>
                             <a href="{{ url ('products/sort') }}">商品分類</a>
                         </li>
+                        <li {{ (Request::is('*products/unit') ? 'class="active"' : '') }}>
+                            <a href="{{ url ('products/unit') }}">商品單位</a>
+                        </li>
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
@@ -129,11 +132,8 @@
                 <li>
                     <a href="#"></i> 統計資料<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li {{ (Request::is('*statistics/inventory') ? 'class="active"' : '') }}>
-                            <a href="{{ url ('statistics/inventory') }}">庫存統計</a>
-                        </li>
-                        <li>
-                            <a href="{{ url ('statistics') }}">銷售統計</a>
+                        <li {{ (Request::is('*statistics') ? 'class="active"' : '') }}>
+                            <a href="{{ url ('statistics') }}">統計資料</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->

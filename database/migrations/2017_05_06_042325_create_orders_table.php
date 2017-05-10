@@ -15,12 +15,13 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('date')->nullable();
-            $table->integer('cuno');
-            $table->integer('fare')->default(0);
+            $table->dateTime('orderdate');
+            $table->integer('custid');
+            $table->integer('prodid');
+            $table->integer('fare');
             $table->integer('price');
-            $table->dateTime('paytime')->nullable();
-            $table->dateTime('deliverytime')->nullable();
+            $table->dateTime('paytime');
+            $table->dateTime('deliverytime');
             $table->integer('transit');
             $table->text('note');
             $table->timestamps();
