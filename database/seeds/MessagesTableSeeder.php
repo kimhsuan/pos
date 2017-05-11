@@ -16,5 +16,9 @@ class MessagesTableSeeder extends Seeder
             'user_id' => '1',
             'name' => '這是第一篇留言',
         ]);
+        DB::table('messages')->insert([
+            'user_id' => '2',
+            'name' => '這是第二篇留言',
+        ]);
     }
 }

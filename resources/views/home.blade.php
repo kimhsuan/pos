@@ -97,62 +97,44 @@
                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-chevron-down"></i>
                     </button>
-                    <ul class="dropdown-menu slidedown">
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-refresh fa-fw"></i> Refresh
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-check-circle fa-fw"></i> Available
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-times fa-fw"></i> Busy
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-clock-o fa-fw"></i> Away
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-sign-out fa-fw"></i> Sign Out
-                            </a>
-                        </li>
-                    </ul>
                 </div>
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <ul class="chat">
                     @foreach ($messages as $message)
-                    <li class="left clearfix">
-                        <span class="chat-img pull-left">
-                            <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                    @if (Auth::user()->id==$message->user_id)
+                    <li class="right clearfix">
+                        <span class="chat-img pull-right">
+                            <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
                         </span>
                         <div class="chat-body clearfix">
                             <div class="header">
                                 <form action="{{ url('message/'.$message->id) }}" method="POST">
                                     {!! csrf_field() !!}
                                     {!! method_field('DELETE') !!}
-                                    <strong class="primary-font">Message</strong>
-                                    @if (Auth::user()->id==$message->user_id)
+                                    <strong class="primary-font">我</strong>
                                     <button type="submit" id="delete-message-{{ $message->id }}" class="btn btn-outline btn-danger btn-xs">
                                         Delete
                                     </button>
-                                    @endif
                                 </form>
                             </div>
-                            <p>
-                                {{ $message->name }}
-                            </p>
+                            <p>{{ $message->name }}</p>
                         </div>
                     </li>
+                    @else
+                    <li class="left clearfix">
+                        <span class="chat-img pull-left">
+                            <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                        </span>
+                        <div class="chat-body clearfix">
+                            <div class="header">
+                                    <strong class="primary-font">{{ $message->user_id }}</strong>
+                            </div>
+                            <p>{{ $message->name }}</p>
+                        </div>
+                    </li>
+                    @endif
                     @endforeach
                 </ul>
             </div>
