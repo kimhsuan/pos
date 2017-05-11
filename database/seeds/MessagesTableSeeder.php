@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class MessagesTableSeeder extends Seeder
 {
@@ -12,9 +13,8 @@ class MessagesTableSeeder extends Seeder
     public function run()
     {
         DB::table('messages')->insert([
-            'user_id' => 1,
+            'user_id' => '1',
             'name' => '這是第一篇留言',
-            'created_at' => \Carbon\Carbon::now()->addDays($number)
         ]);
     }
 }
