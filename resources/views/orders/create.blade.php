@@ -18,7 +18,7 @@
                                 <input type="date" name="orderdate" class="form-control" value="{{ $now }}">
                             </div>
                             <div class="form-group">
-                                <label>客戶帳號</label>
+                                <label>顧客帳號</label>
                                 <select name="custid" class="form-control">
                                     @foreach($customers as $customer)
                                     <option value="{{ $customer->id }}">{{ $customer->account }}</option>
