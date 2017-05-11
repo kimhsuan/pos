@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', ['as' => 'index','uses' => 'HomeController@index'], function () {
     if(Auth::user()){
         return view('home');
     }else{
@@ -59,3 +59,7 @@ Route::group(['prefix'=>'customers'], function(){
 });
 
 Route::get('statistics', ['as' => 'statistics.index','uses' => 'StatController@index']);
+
+Route::get('/messages', 'MessageController@index');
+Route::post('/message', 'MessageController@store');
+Route::delete('/message/{message}', 'MessageController@destroy');
